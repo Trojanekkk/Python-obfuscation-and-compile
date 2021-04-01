@@ -2,8 +2,8 @@
 ECHO [97;100m Welcome to "Protect Python code and expose as exe file" [0m
 ECHO.
 ECHO [97;100m Installing cython and pyinstaller [0m
-REM pip install pyinstaller
-REM pip install cython
+pip install pyinstaller
+pip install cython
 
 IF EXIST __result__ (
     ECHO [101;93m Remove __result__ directory from: %cd%! [0m
@@ -42,6 +42,7 @@ ECHO [101;93m Modify .\__result__\main.py, to be able run application from main
 PAUSE
 
 ECHO [97;100m Building app [0m
-python .\__result__\compile.py build_ext --inplace
+cd .\__result__
+python .\compile.py build_ext --inplace
 REM pyinstaller .\main.py
 PAUSE
